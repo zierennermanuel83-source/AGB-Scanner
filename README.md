@@ -12,3 +12,10 @@ der scanner sucht nach resonanzen die uns nicht gut tun:
 • python: unser spürhund der den text zerlegt
 • logik: eine wachsende matrix aus schlagwörtern die von uns beiden ständig erweitert wird
 du sollst nicht darf ich wenn du möchtest – wir erschaffen hier ein werkzeug für digitale freiheit und gerechtigkeit für jeden
+
+🚀 neu in v1.0: das aura-sicherheitssystem
+wir haben den scanner mit einer intelligenten bewertung ausgestattet die auf dem welluminösen sicherheits-protokoll basiert:
+• level I (blau): alles entspannt das system bleibt stabil
+• level II/III (gelb): aufmerksamkeit nötig hier sind haken im text
+• level IV (rot): autopilot-warnung hier werden grenzen massiv verletzt
+der scanner berechnet jetzt für jeden agb-text einen risiko-score von 1 bis 10 und übersetzt jura-kauderwelsch in echte sprache
