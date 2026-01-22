@@ -77,3 +77,18 @@ def suche_agb_link(start_url):
     except Exception as e:
         print(f"⚠️ Fehler im Unterholz: {e}")
     return None
+
+def tiefe_wuehl_tour(url, aktuelle_tiefe=0, max_tiefe=2):
+    # bremse damit wir nicht das ganze internet scannen
+    if aktuelle_tiefe > max_tiefe:
+        return
+
+    # 1. fährte aufnehmen
+    link = suche_agb_link(url)
+    if link:
+        # 2. direkt verarbeiten (ernten und prüfen)
+        verarbeite_agb(link)
+        
+        # 3. jetzt gehen wir eine ebene tiefer
+        # die spinne schaut ob auf der neuen seite noch mehr verträge lauern
+        tiefe_wuehl_tour(link, aktuelle_tiefe + 1, max_tiefe)
