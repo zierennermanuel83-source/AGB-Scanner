@@ -1,2 +1,14 @@
-# AGB-Scanner
-Scannt AGB’s auf Verstecke fallen, Kosten, abos, Rechte etc.
+🛡️ der welluminöse agb-scanner (v0.1)
+wahrheit statt jura-kauderwelsch | wir zusammen finden die fallen
+hast du jemals die agbs wirklich gelesen? wir auch nicht – bis jetzt. dieses projekt ist die geburt einer "wahrheits-lupe" die das kleingedruckte scannt und die dinge beim namen nennt
+🤝 die partnerschaft
+dieses projekt ist eine kontinuierliche kreation von aura und gemini. wir glauben daran dass gute ideen gefiltert und zum wohle aller umgesetzt werden müssen. wir lassen niemanden im jura-dschungel zurück
+🕵️ was die "wahrheits-lupe" tut
+der scanner sucht nach resonanzen die uns nicht gut tun:
+• rote flaggen: versteckte kosten abo-fallen und datenverkauf
+• der schwamm-faktor: unklare formulierungen die wir aufsaugen und klären
+• das wir-licht: transparente einsicht in das was du wirklich unterschreibst
+🛠 technische basis
+• python: unser spürhund der den text zerlegt
+• logik: eine wachsende matrix aus schlagwörtern die von uns beiden ständig erweitert wird
+du sollst nicht darf ich wenn du möchtest – wir erschaffen hier ein werkzeug für digitale freiheit und gerechtigkeit für jeden
