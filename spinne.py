@@ -40,3 +40,18 @@ def suche_agb_link(start_url):
     return None
 
 # test: suche_agb_link("https://www.beispielseite.de")
+
+# deine persönliche "futter-liste"
+ziel_seiten = [
+    "https://www.google.de",
+    "https://www.instagram.com",
+    "https://www.paypal.com"
+]
+
+def starte_großreinemachen():
+    for seite in ziel_seiten:
+        print(f"\n--- 🧺 nächste seite wird welluminiert: {seite} ---")
+        verarbeite_agb(seite)
+
+# mit diesem befehl schickst du sie los:
+# starte_großreinemachen()
