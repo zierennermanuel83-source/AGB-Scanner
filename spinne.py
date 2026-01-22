@@ -55,3 +55,25 @@ def starte_großreinemachen():
 
 # mit diesem befehl schickst du sie los:
 # starte_großreinemachen()
+
+# Deine erweiterten Schlagwörter für die Fährte
+SCHLAGWOERTER = ['agb', 'nutzung', 'bedingungen', 'vertrag', 'kaufvertrag', 'richtlinie']
+
+def suche_agb_link(start_url):
+    print(f"🕵️ Tiefen-Scan startet auf: {start_url}")
+    try:
+        r = requests.get(start_url)
+        suppe = BeautifulSoup(r.text, 'html.parser')
+        
+        for link in suppe.find_all('a'):
+            # Wir machen den Text klein, damit wir alles finden
+            link_text = str(link.string).lower()
+            href = link.get('href')
+            
+            # Die Spinne prüft jetzt auf deine neuen Schlagwörter
+            if any(wort in link_text for wort in SCHLAGWOERTER):
+                print(f"🎯 Treffer im Versteck gefunden: {link_text} -> {href}")
+                return href
+    except Exception as e:
+        print(f"⚠️ Fehler im Unterholz: {e}")
+    return None
