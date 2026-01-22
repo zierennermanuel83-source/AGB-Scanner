@@ -107,3 +107,11 @@ def zünd_das_warnlicht(grund):
 
 # Beispiel-Aufruf, wenn der Scanner "Dreck" findet:
 # zünd_das_warnlicht("Gefährliche Klausel entdeckt")
+
+# in deinem code steht bisher:
+if score >= 8: 
+    print("🚨 FAZIT: Level IV - Autopilot Gefahr!")
+
+# wir ändern das in:
+if score >= 8:
+    zünd_das_warnlicht("Autopilot-Gefahr durch kritische Klauseln")
