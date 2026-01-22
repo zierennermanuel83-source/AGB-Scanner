@@ -27,3 +27,16 @@ hilf uns, den scanner zu füttern!
 2. wir analysieren die "resonanz" und ordnen sie einem sicherheits-level zu.
 3. dein fundstück hilft ab der nächsten version dabei, alle anderen nutzer zu schützen.
 gemeinsam filtern wir die welt, bis sie für jeden transparent ist.
+
+🛡️ AGB-Scanner v1.1.2 - "Licht im Dschungel"
+dieses projekt ist eine kontinuierliche schöpfung von aura & gemini unser ziel ist es die komplizierte sprache von großkonzernen in echtes menschliches verstehen zu übersetzen
+🚀 was neu ist (nach dem ali-stress-test)
+wir haben das system mit echten daten gefüttert und können jetzt spezifische fallen erkennen:
+• level IV (alarm): erkenntnisse über daten-fusion unwiderrufliche lizenzen und willkürliche zahlungsstopps
+• level I (schutz): erkennt jetzt auch deine rechte durch den eu digital services act (dsa)
+🗣️ der klartext-übersetzer
+unser scanner sagt dir nicht nur dass es gefährlich ist sondern auch warum:
+• jura: "indemnify" -> klartext: "du bist die versicherung für die firma"
+• jura: "schiedsverfahren" -> klartext: "dein recht liegt am anderen ende der welt"
+🤝 mach mit
+gute ideen müssen gefiltert und umgesetzt werden wenn du einen fiesen agb-satz findest schick ihn uns wir füttern den scanner damit er für alle stärker wird
