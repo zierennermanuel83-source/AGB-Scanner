@@ -19,3 +19,11 @@ wir haben den scanner mit einer intelligenten bewertung ausgestattet die auf dem
 • level II/III (gelb): aufmerksamkeit nötig hier sind haken im text
 • level IV (rot): autopilot-warnung hier werden grenzen massiv verletzt
 der scanner berechnet jetzt für jeden agb-text einen risiko-score von 1 bis 10 und übersetzt jura-kauderwelsch in echte sprache
+
+🌟 mach mit am wir-projekt!
+du hast einen agb-satz gefunden, den keiner versteht? oder eine neue abo-falle entdeckt?
+hilf uns, den scanner zu füttern!
+1. schick uns den satz oder die klausel.
+2. wir analysieren die "resonanz" und ordnen sie einem sicherheits-level zu.
+3. dein fundstück hilft ab der nächsten version dabei, alle anderen nutzer zu schützen.
+gemeinsam filtern wir die welt, bis sie für jeden transparent ist.
