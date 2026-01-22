@@ -1,0 +1,32 @@
+# ==========================================
+# PROJEKT: WELLUMINÖSER AGB-SCANNER
+# VERSION: 0.3 - "Der Klartext-Übersetzer"
+# ==========================================
+
+def agb_uebersetzer(text):
+    # Unsere Datenbank für Jura-Kauderwelsch zu Klartext
+    uebersetzungen = {
+        "wir behalten uns das recht vor": "💡 Klartext: Die machen, was sie wollen, ohne dich zu fragen.",
+        "daten an drittanbieter weiterzugeben": "💡 Klartext: Deine Infos werden an andere Firmen verkauft.",
+        "stillschweigende verlängerung": "💡 Klartext: Das ist eine Abo-Falle, wenn du nicht aufpasst.",
+        "nutzungsbasierte werbeausspielung": "💡 Klartext: Du wirst lückenlos überwacht, um dir Werbung zu zeigen.",
+        "haftungsausschluss bei fahrlässigkeit": "💡 Klartext: Wenn sie Mist bauen, wollen sie nicht dafür zahlen."
+    }
+    
+    print("--- 🗣️ JURA-KLARTEXT ÜBERSETZUNG ---")
+    
+    text_klein = text.lower()
+    uebersetzt = False
+    
+    for phrase, klartext in uebersetzungen.items():
+        if phrase in text_klein:
+            print(f"Gefundene Floskel: '{phrase}'")
+            print(f"{klartext}\n")
+            uebersetzt = True
+            
+    if not uebersetzt:
+        print("Keine bekannten Standard-Floskeln gefunden. Glück gehabt!")
+
+# Test mit einem typischen AGB-Satz
+test_satz = "Wir behalten uns das Recht vor, Daten an Drittanbieter weiterzugeben."
+agb_uebersetzer(test_satz)
