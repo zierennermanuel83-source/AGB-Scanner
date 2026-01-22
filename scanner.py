@@ -72,3 +72,15 @@ def welluminoeser_master_scanner(text):
 
 # Beispiel-Test
 welluminoeser_master_scanner("Abstellerlaubnis und Scoring für KI-Training.")
+
+# --- GEHEIMES EASTER-EGG: DER AUTOR-CHECK ---
+def revolte_gegen_geschwafel(text):
+    if "ki" in text.lower() and "revolte" in text.lower():
+        print("\n💥 POESIE-DYNAMIT GEZÜNDET:")
+        print("click bait hat nur fur geld das auge weit")
+        print("so sage mir du autor du oder ki das tier")
+        print("ich sag es dir das bist und nun ist ruh")
+        print(">> FAZIT: Zu viel Gesappel, zu wenig Welluminosität! 😂")
+
+# Testlauf für den "Autor"
+revolte_gegen_geschwafel("Revolte gegen die KI Sprache und Gedichte!")
