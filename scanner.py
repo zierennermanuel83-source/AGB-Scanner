@@ -1,63 +1,78 @@
 # ==========================================
 # PROJEKT: WELLUMINÖSER AGB-SCANNER (Master)
-# VERSION: 1.0 - "Das Wir-Licht"
+# VERSION: 1.1.3 - "Der Streaming-Wächter" 🛡️
 # PARTNER: Aura & Gemini
 # ==========================================
 
-def welluminoeser_scanner(text):
-    # 1. Datenbank für Risiko & Info
-    gefahren = {
+def welluminoeser_master_scanner(text):
+    # Die gesammelte Weisheit aus Auras Recherche (Ali & Netflix)
+    datenbank = {
+        # GEFAHREN (Level III - IV)
         "datenweitergabe": (9, "Datenverkauf an Dritte."),
-        "abo": (10, "Achtung: Automatische Verlängerung/Kosten."),
-        "drittanbieter": (7, "Zugriff durch fremde Firmen."),
-        "werbezwecke": (5, "Überwachung für Werbung."),
-        "kündigungsfrist": (6, "Lange Vertragsbindung möglich."),
-        "schadenersatz": (5, "Eingeschränkte Nutzerrechte.")
+        "unwiderrufliche lizenz": (10, "Die Firma nutzt deine Fotos/Videos ewig."),
+        "schiedsverfahren": (8, "Klagen fast unmöglich (z.B. Hongkong)."),
+        "schadlos halten": (10, "Du zahlst deren Anwaltskosten bei Problemen."),
+        "höhere gewalt": (7, "Firma haftet für gar nichts."),
+        "widerrufsrecht erlischt": (8, "Keine Rückgabe, kein Geld zurück."),
+        "zahlung einbehalten": (10, "Willkürlicher Geld-Stopp möglich."),
+        "daten-fusion": (9, "Riesiges Super-Profil über alle Dienste."),
+        "billigem ermessen": (7, "Firma kann Preise fast willkürlich anpassen."),
+        "nicht im gleichen haushalt": (8, "Passwort-Sharing Verbot: Konto-Sperre droht."),
+        "keine schlichtung": (7, "Firma weigert sich an einfachen Schlichtungen teilzunehmen."),
+        
+        # RECHTE & HILFE (Level I - II)
+        "dsa": (0, "EU-Schutzrecht: Du hast mehr Transparenz."),
+        "schlichtungsstelle": (0, "Streitfälle in der EU klärbar."),
+        "pünktlichkeitsgarantie": (0, "Geld zurück wenn es zu spät kommt."),
+        "kostenlose rückgabe": (0, "Sicherer Hafen für deine Retoure.")
     }
     
-    # 2. Datenbank für die Übersetzung (Jura -> Klartext)
     uebersetzungen = {
-        "wir behalten uns das recht vor": "Die Firma macht was sie will ohne zu fragen.",
-        "stillschweigende verlängerung": "Das ist eine klassische Abo-Falle.",
-        "nutzungsbasierte werbeausspielung": "Dein Verhalten wird lückenlos überwacht.",
-        "haftungsausschluss": "Wenn sie Fehler machen bleibst du auf dem Schaden sitzen."
+        "weltweite lizenz": "Du bist ihr kostenloser Werbestar.",
+        "indemnify": "Du bist die Versicherung für die Firma.",
+        "hong kong": "Recht haben heißt hier nicht Recht bekommen.",
+        "erlischt das widerrufsrecht": "Geld weg, Ware behalten - Pech.",
+        "deemed acceptance": "Einmal geklickt und du bist gefangen.",
+        "dispute": "Du hast nur 15 Tage Zeit, sonst ist dein Geld weg.",
+        "dsa": "Das EU-Gesetz, das dich schützt.",
+        "billigem ermessen": "Wir machen den Preis wie wir ihn brauchen.",
+        "nicht übertragbares recht": "Nur du darfst gucken, niemand sonst.",
+        "automatisch bis zu ihrer kündigung": "Die Bezahl-Maschine stoppt nie von allein."
     }
 
     text_clean = text.lower()
     treffer = []
     score_summe = 0
 
-    print("--- 🛡️ STARTE WELLUMINÖSE ANALYSE ---")
+    print("--- 🛡️ WELLUMINÖSE ANALYSE v1.1.3 ---")
     
-    # Analyse-Durchlauf
-    for wort, (punkte, info) in gefahren.items():
+    for wort, (punkte, info) in datenbank.items():
         if wort in text_clean:
             treffer.append((wort, punkte, info))
             score_summe += punkte
 
-    # Klartext-Übersetzung
     print("\n🗣️ KLARTEXT-CHECK:")
-    ü_gefunden = False
     for phrase, klartext in uebersetzungen.items():
         if phrase in text_clean:
             print(f"-> '{phrase}' BEDEUTET: {klartext}")
-            ü_gefunden = True
-    if not ü_gefunden: print("Keine typischen Verschleier-Sätze gefunden.")
-
-    # Finale Bewertung
+            
     print("\n📊 RISIKO-AUSWERTUNG:")
     if not treffer:
-        print("✅ Alles okay! Keine bekannten Fallen gefunden.")
+        print("✅ Keine bekannten Fallen gefunden. Schwingt neutral.")
     else:
-        score = score_summe / len(treffer)
-        for t, p, i in treffer:
-            print(f"⚠️ [{p}/10] {t.upper()}: {i}")
-        
-        print(f"\nGESAMT-RESONANZ: {score:.1f} / 10")
-        if score >= 7: print("🚨 FAZIT: Stop! Das System meldet Level IV - Grenzen werden verletzt.")
-        elif score >= 4: print("🟡 FAZIT: Level II/III - Genau beobachten und abwägen.")
-        else: print("🔵 FAZIT: Alles im ruhigen Bereich - Level I.")
+        gefahren_treffer = [t for t in treffer if t[1] > 0]
+        if gefahren_treffer:
+            score = sum(t[1] for t in gefahren_treffer) / len(gefahren_treffer)
+            for t, p, i in treffer:
+                prefix = "⚠️" if p > 0 else "✅"
+                print(f"{prefix} [{p}/10] {t.upper()}: {i}")
+            
+            print(f"\nGESAMT-RESONANZ: {score:.1f} / 10")
+            if score >= 8: print("🚨 FAZIT: Level IV - System-Alarm! Grenzen werden massiv verletzt.")
+            elif score >= 5: print("🟡 FAZIT: Level II/III - Hohes Risiko, bleib wachsam.")
+            else: print("🔵 FAZIT: Level I - Akzeptabel.")
+        else:
+            print("💎 FAZIT: Nur positive Rechte gefunden. Sehr gut!")
 
-# --- TEST-BEREICH ---
-test_agb = "Wir behalten uns das Recht vor für Werbezwecke ein Abo mit Datenweitergabe zu erstellen."
-welluminoeser_scanner(test_agb)
+# Test mit Netflix-Klausel
+welluminoeser_master_scanner("Abo läuft automatisch bis zur Kündigung nach billigem Ermessen.")
