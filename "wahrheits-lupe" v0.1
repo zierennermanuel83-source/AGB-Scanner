@@ -1,0 +1,42 @@
+# ==========================================
+# PROJEKT: WELLUMINÖSER AGB-SCANNER
+# VERSION: 0.1 - "Die Wahrheits-Lupe"
+# VISION: Transparenz für alle.
+# ==========================================
+
+def agb_check(text):
+    # Unsere Liste an "roten Flaggen"
+    gefahren = {
+        "datenweitergabe": "Deine Daten könnten an Dritte verkauft werden.",
+        "drittanbieter": "Fremde Firmen erhalten Zugriff auf dein Profil.",
+        "kostenpflichtig": "Achtung! Hier verstecken sich Kosten.",
+        "abo": "Das könnte eine Abo-Falle sein.",
+        "kündigungsfrist": "Prüfe, wie lange du an den Vertrag gebunden bist.",
+        "werbezwecke": "Deine Daten werden für nervige Werbung genutzt."
+    }
+    
+    gefundene_warnungen = []
+    
+    # Den Text in Kleinbuchstaben umwandeln für die Suche
+    text = text.lower()
+    
+    print("--- SCAN STARTET ---")
+    for wort, erklaerung in gefahren.items():
+        if wort in text:
+            gefundene_warnungen.append(f"🚨 {wort.upper()}: {erklaerung}")
+            
+    if not gefundene_warnungen:
+        print("✅ Keine direkten Warnsignale gefunden. Aber bleib wachsam!")
+    else:
+        for warnung in gefundene_warnungen:
+            print(warnung)
+    print("--- SCAN BEENDET ---")
+
+# Beispiel-Test: Kopiere hier einen AGB-Ausschnitt rein
+test_text = """
+Wir behalten uns das Recht vor, Daten für Werbezwecke an Drittanbieter 
+weiterzugeben. Die Nutzung des Dienstes ist nach 30 Tagen kostenpflichtig 
+und geht in ein Abo über.
+"""
+
+agb_check(test_text)
