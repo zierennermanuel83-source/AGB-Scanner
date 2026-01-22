@@ -92,3 +92,25 @@ def tiefe_wuehl_tour(url, aktuelle_tiefe=0, max_tiefe=2):
         # 3. jetzt gehen wir eine ebene tiefer
         # die spinne schaut ob auf der neuen seite noch mehr verträge lauern
         tiefe_wuehl_tour(link, aktuelle_tiefe + 1, max_tiefe)
+
+# ganz oben in deine spinne.py
+ergebnis_liste = []
+
+def verarbeite_agb(url):
+    agb_link = suche_agb_link(url)
+    if agb_link:
+        text = requests.get(agb_link).text
+        # wir holen uns den score vom scanner (simuliert)
+        score = 8 # hier würde dein scanner-wert stehen
+        
+        status = "🔴 GEFAHR" if score >= 8 else "🟢 OK"
+        ergebnis_liste.append(f"{status} | Seite: {url}")
+        
+        if score >= 8:
+            zünd_das_warnlicht(f"Dreck gefunden auf {url}")
+
+def zeige_bericht():
+    print("\n--- 📋 DER WELLUMINÖSE ABSCHLUSS-BERICHT ---")
+    for eintrag in ergebnis_liste:
+        print(eintrag)
+    print("--- ALLES DURCHGEWÜHLT ---")
