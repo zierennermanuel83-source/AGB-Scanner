@@ -122,3 +122,22 @@ def bericht_speichern():
             datei.write(eintrag + "\n")
         datei.write("--- SCAN BEENDET ---")
     print("💾 bericht wurde als 'welluminoeser_bericht.txt' gespeichert!")
+
+import hashlib # das ist das werkzeug für den digitalen fingerabdruck
+
+# ein kleines gedächtnis für die spinne
+agb_gedaechtnis = {} 
+
+def auf_aenderung_pruefen(url, neuer_text):
+    # wir erstellen einen fingerabdruck vom aktuellen text
+    neuer_hash = hashlib.md5(neuer_text.encode()).hexdigest()
+    
+    if url in agb_gedaechtnis:
+        alter_hash = agb_gedaechtnis[url]
+        if neuer_hash != alter_hash:
+            print(f"⚠️ ALARM: Die AGB auf {url} haben sich verändert!")
+            zünd_das_warnlicht("AGB-Änderung erkannt")
+            # hier könnten wir jetzt genau schauen WAS sich geändert hat
+    
+    # wir merken uns den neuen stand für das nächste mal
+    agb_gedaechtnis[url] = neuer_hash
