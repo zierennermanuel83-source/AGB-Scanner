@@ -141,3 +141,15 @@ def auf_aenderung_pruefen(url, neuer_text):
     
     # wir merken uns den neuen stand für das nächste mal
     agb_gedaechtnis[url] = neuer_hash
+
+from datetime import datetime # das neue werkzeug für die zeit
+
+def bericht_speichern():
+    zeitpunkt = datetime.now().strftime("%d.%m.%Y um %H:%M Uhr")
+    with open("welluminoeser_bericht.txt", "w", encoding="utf-8") as datei:
+        datei.write(f"--- 📋 DER WELLUMINÖSE ABSCHLUSS-BERICHT ---\n")
+        datei.write(f"Erstellt am: {zeitpunkt}\n\n") # hier steht jetzt das datum
+        for eintrag in ergebnis_liste:
+            datei.write(eintrag + "\n")
+        datei.write("\n--- SCAN BEENDET ---")
+    print(f"💾 bericht vom {zeitpunkt} wurde gespeichert!")
