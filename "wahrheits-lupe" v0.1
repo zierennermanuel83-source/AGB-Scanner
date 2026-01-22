@@ -1,42 +1,46 @@
-# ==========================================
+ # ==========================================
 # PROJEKT: WELLUMINÖSER AGB-SCANNER
-# VERSION: 0.1 - "Die Wahrheits-Lupe"
-# VISION: Transparenz für alle.
+# VERSION: 0.2 - "Der Risiko-Check"
 # ==========================================
 
-def agb_check(text):
-    # Unsere Liste an "roten Flaggen"
+def agb_check_pro(text):
+    # Gefahren mit Risiko-Punkten (1-10)
     gefahren = {
-        "datenweitergabe": "Deine Daten könnten an Dritte verkauft werden.",
-        "drittanbieter": "Fremde Firmen erhalten Zugriff auf dein Profil.",
-        "kostenpflichtig": "Achtung! Hier verstecken sich Kosten.",
-        "abo": "Das könnte eine Abo-Falle sein.",
-        "kündigungsfrist": "Prüfe, wie lange du an den Vertrag gebunden bist.",
-        "werbezwecke": "Deine Daten werden für nervige Werbung genutzt."
+        "datenweitergabe": (8, "Deine privaten Daten werden verkauft."),
+        "abo": (9, "Mögliche Kostenfalle durch automatische Verlängerung."),
+        "drittanbieter": (7, "Zugriff durch externe Firmen."),
+        "werbezwecke": (4, "Deine Daten werden für Werbung genutzt."),
+        "kündigungsfrist": (6, "Lange Bindung möglich – prüfe die Fristen."),
+        "schadenersatz": (5, "Komplizierte Haftungsregeln gefunden.")
     }
     
-    gefundene_warnungen = []
-    
-    # Den Text in Kleinbuchstaben umwandeln für die Suche
+    gesamt_risiko = 0
+    gefundene_treffer = 0
     text = text.lower()
     
-    print("--- SCAN STARTET ---")
-    for wort, erklaerung in gefahren.items():
+    print("--- 🔍 WELLUMINÖSER SCAN STARTET ---")
+    
+    for wort, (punkte, info) in gefahren.items():
         if wort in text:
-            gefundene_warnungen.append(f"🚨 {wort.upper()}: {erklaerung}")
+            print(f"⚠️ [{punkte}/10] {wort.upper()}: {info}")
+            gesamt_risiko += punkte
+            gefundene_treffer += 1
             
-    if not gefundene_warnungen:
-        print("✅ Keine direkten Warnsignale gefunden. Aber bleib wachsam!")
+    print("-" * 30)
+    
+    if gefundene_treffer == 0:
+        print("✅ ERGEBNIS: Alles im grünen Bereich. Viel Spaß!")
     else:
-        for warnung in gefundene_warnungen:
-            print(warnung)
-    print("--- SCAN BEENDET ---")
+        durchschnitt = gesamt_risiko / gefundene_treffer
+        print(f"📊 RISIKO-SCORE: {durchschnitt:.1f} / 10")
+        
+        if durchschnitt >= 7:
+            print("🚨 FAZIT: Sehr riskant! Lies das auf jeden Fall nochmal genau.")
+        elif durchschnitt >= 4:
+            print("🟡 FAZIT: Ein paar Haken sind dabei. Sei wachsam.")
+        else:
+            print("🔵 FAZIT: Sieht weitgehend fair aus.")
 
-# Beispiel-Test: Kopiere hier einen AGB-Ausschnitt rein
-test_text = """
-Wir behalten uns das Recht vor, Daten für Werbezwecke an Drittanbieter 
-weiterzugeben. Die Nutzung des Dienstes ist nach 30 Tagen kostenpflichtig 
-und geht in ein Abo über.
-"""
-
-agb_check(test_text)
+# Hier zum Testen einen Text einfügen
+beispiel = "Dieses Abo beinhaltet die Datenweitergabe an Drittanbieter für Werbezwecke."
+agb_check_pro(beispiel)
