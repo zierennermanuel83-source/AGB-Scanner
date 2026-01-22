@@ -84,3 +84,26 @@ def revolte_gegen_geschwafel(text):
 
 # Testlauf für den "Autor"
 revolte_gegen_geschwafel("Revolte gegen die KI Sprache und Gedichte!")
+
+# --- DER WELLUMINÖSE WÄCHTER-MODUS (LEVEL IV) ---
+import time
+import random
+
+def zünd_das_warnlicht(grund):
+    print(f"\n{'!'*45}")
+    print(f"🚨 ALARM: {grund.upper()} 🚨")
+    print(f"{'!'*45}\n")
+    
+    reim = "bei rot bleib lieber stehen sonst wird es dir schlecht ergehen"
+    
+    # Simuliert das Zittern und Flackern in der Konsole
+    for i in range(5):
+        spacer = " " * random.randint(0, 10)
+        print(f"{spacer}>>> {reim.upper()} <<<")
+        time.sleep(0.1)
+    
+    print("\n🛑 ACHTUNG: HIER IST DRECK AM STECKEN! 🛑")
+    print(">>> Systemzustand: REURINNSUICHDURCHUNDDURCHREIN 🍓\n")
+
+# Beispiel-Aufruf, wenn der Scanner "Dreck" findet:
+# zünd_das_warnlicht("Gefährliche Klausel entdeckt")
