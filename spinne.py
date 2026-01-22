@@ -1,3 +1,23 @@
+# füge das oben in deine spinne.py ein um die verbindung zu aktivieren
+from scanner import revolte_gegen_geschwafel, zünd_das_warnlicht
+
+def verarbeite_agb(url):
+    agb_link = suche_agb_link(url) # deine spinne sucht den link
+    if agb_link:
+        text = requests.get(agb_link).text # die spinne holt den inhalt
+        
+        # jetzt wird es welluminös:
+        print("🔍 starte automatische prüfung...")
+        
+        # wir prüfen auf gesappel
+        revolte_gegen_geschwafel(text) 
+        
+        # hier simulieren wir die punktzahl - wenn es zu viel ist:
+        # zünd_das_warnlicht("automatischer fund") 
+    else:
+        print("nichts gefunden das system bleibt ruhig")
+
+
 import requests
 from bs4 import BeautifulSoup # das ist wie eine lupe für die spinne
 
