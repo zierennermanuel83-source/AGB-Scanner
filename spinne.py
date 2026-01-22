@@ -114,3 +114,11 @@ def zeige_bericht():
     for eintrag in ergebnis_liste:
         print(eintrag)
     print("--- ALLES DURCHGEWÜHLT ---")
+
+def bericht_speichern():
+    with open("welluminoeser_bericht.txt", "w", encoding="utf-8") as datei:
+        datei.write("--- 📋 DER WELLUMINÖSE ABSCHLUSS-BERICHT ---\n")
+        for eintrag in ergebnis_liste:
+            datei.write(eintrag + "\n")
+        datei.write("--- SCAN BEENDET ---")
+    print("💾 bericht wurde als 'welluminoeser_bericht.txt' gespeichert!")
